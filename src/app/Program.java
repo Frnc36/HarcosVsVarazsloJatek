@@ -93,9 +93,9 @@ public class Program {
 
         // Végeredmény
         System.out.println("=== JÁTÉK VÉGE ===");
-        if (harcos.getEletEro() <= 0 && varazslo.getEletEro() <= 0) {
+        if (harcos.getEletEro() <= 0 && varazslo.getEletEro() <= 0) { //ha a Harcos és a Varázsló életereje is 0 vagy annál kisebb.
             System.out.println("DÖNTETLEN! Mindketten meghaltak.");
-        } else if (harcos.getEletEro() <= 0) {
+        } else if (harcos.getEletEro() <= 0) {//ha a Harcos életereje 0 vagy annál kisebb.
             System.out.println(varazslo.getNev() + " győzött!");
         } else {
             System.out.println(harcos.getNev() + " győzött!");
