@@ -9,26 +9,44 @@ public class Program {
     private static final Random RND = new Random();
 
     public static void main(String[] args) {
+        /* Kimenet Terv */
+        // ⚔  _  🔮
+        // 1. 2.  3.
+        // _  X  _
+        
+        /**
+         * Példányonsítás
+         */
         Harcos harcos = new Harcos();
         Varazslo varazslo = new Varazslo();
 
+        /**
+         * Infó + toString
+         */
         System.out.println("=== HARCOS vs VARÁZSLÓ JÁTÉK ===");
         System.out.println("A karakterek 1-3 mezők között lépnek.");
         System.out.println("Ha ugyanarra a mezőre lépnek, harcolnak!\n");
-        System.out.println(varazslo);
-        System.out.println(harcos + "\n");
+        
+        System.out.println("<--- Kezdő Értékek --->");
+        System.out.println(harcos);
+        System.out.println(varazslo + "\n");
 
         int kor = 1;
 
         while (harcos.getEletEro() > 0 && varazslo.getEletEro() > 0) {
             System.out.println("----------------------------------------");
             System.out.println(kor + ". kör:");
-            // Kiírás a kör elején
-            System.out.println(harcos.getNev() + " (Élet" + harcos.getEletEro() + ") a " + (harcos.getMezo() + 1) + ". mezőn");
-            System.out.println(varazslo.getNev() + " (Élet: " + varazslo.getEletEro() + ") a " + (varazslo.getMezo() + 1) + ". mezőn");
 
-            // Random lépések
-            int hLepes = RND.nextInt(3);  // 0,1,2
+            /**
+             * Kiírás a kör elején (toString-et használva)
+             */
+            System.out.println(harcos);
+            System.out.println(varazslo);
+
+            /**
+             * Random lépések
+             */
+            int hLepes = RND.nextInt(3);
             int vLepes = RND.nextInt(3);
 
             harcos.setMezo(hLepes);
@@ -37,10 +55,13 @@ public class Program {
             System.out.println("\n" + harcos.getNev() + " a " + (harcos.getMezo() + 1) + ". mezőre lépett");
             System.out.println(varazslo.getNev() + " a " + (varazslo.getMezo() + 1) + ". mezőre lépett");
 
-            // Harci ellenőrzés
+            /**
+             * Harc ellenőrzés
+             */
             if (harcos.getMezo() == varazslo.getMezo()) {
-                System.out.println("\n*** HARCO! *** X");
-
+                System.out.println("\n*** HARC! ***");
+                System.out.println("X");
+                
                 int harcosSebzes = harcos.sebzes();
                 int varazsloSebzes = varazslo.sebzes();
 
@@ -53,18 +74,18 @@ public class Program {
                 System.out.println("\n(Nem találkoztak)");
             }
 
-            
-
-            // Gyógyulás (minden kör végén)
+            /**
+             * Gyógyulás minden kör végén A feltétel akkor teljesül, ha a
+             * varázsló életereje nagyobb, mint 0.
+             */
             if (varazslo.getEletEro() > 0) {
-                System.out.println("\n--- GYÓGYULÁS ---");
                 varazslo.gyogyul();
             }
 
-
+            /**
+             * Ne menjen a végtelenségig
+             */
             kor++;
-
-            // Ne menjen a végtelenségig
             if (kor > 50) {
                 break;
             }
