@@ -8,22 +8,29 @@ public class Harcos extends Jatekos {
 
     public Harcos() {
         //      nev, sebzes, mezo
-        super("Harcos", 2, 0);
+        super("Harcos", 3, 0);
     }
 
     @Override
     public String toString() {
         return "⚔️ " + getNev() + " | ❤️ " + getEletEro() + " | 🗡️ " + getSebzes() + " | 📍 " + (getMezo() + 1);
     }
-
+    
+    /**
+     * Harcosna van eséllye dupla sebzése
+     */
     @Override
     public int sebzes() {
         int alapSebzes = getSebzes();
-        if (RND.nextInt(100) < 30) {
-            System.out.println("*** DUPLA SEBZÉS! ***");
+        boolean dupla = RND.nextInt(100) < 30; // 30% eséllyel
+        if (dupla) {
+            System.out.println("*** HARCOS DUPLA SEBZÉS! ***");
+            System.out.println("Harcos sebzése: " + (alapSebzes * 2));
             return alapSebzes * 2;
+        } else {
+            System.out.println("Harcos sebzése: " + alapSebzes);
+            return alapSebzes;
         }
-        return alapSebzes;
     }
 
 }//class
