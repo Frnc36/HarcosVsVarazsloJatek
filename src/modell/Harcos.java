@@ -1,9 +1,9 @@
 package modell;
 
-//import java.util.Random;
+import java.util.Random;
 public class Harcos extends Jatekos {
 
-    //private static final Random RND = new Random();
+    private static final Random RND = new Random();
     public Harcos() {
         //      nev, sebzes, mezo
         super("Harcos", 3, 0);
@@ -15,14 +15,14 @@ public class Harcos extends Jatekos {
     }
 
     /**
-     * Harcosna van eséllye dupla sebzése
+     * Harcosnak van esélye dupla sebzése
      *
      * @return
      */
     @Override
     public int sebzes() {
         int alapSebzes = getSebzes();
-        boolean dupla = getRND().nextInt(100) < 30; //30% eséllyel
+        boolean dupla = RND.nextInt(100) < 30; //30% eséllyel
         if (dupla) {
             System.out.println("*** HARCOS DUPLA SEBZÉS! ***");
             System.out.println("Harcos sebzése: " + (alapSebzes * 2));

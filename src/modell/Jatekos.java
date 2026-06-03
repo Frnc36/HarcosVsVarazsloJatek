@@ -11,9 +11,10 @@ public class Jatekos {
     private int sebzes;
     private int mezo;
 
+    //public enum Karakterek{"⚔","🔮"};
     public Jatekos(String nev, int sebzes, int mezo) {
         this.nev = nev;
-        this.eletEro = 9;   // fix 9, mindenki ezt örökli
+        this.eletEro = 9;   //fix 9, mindenki ezt örökli
         this.sebzes = sebzes;
         this.mezo = mezo;
     }
@@ -32,10 +33,6 @@ public class Jatekos {
 
     public int getMezo() {
         return mezo;
-    }
-    //Kell-e a Random-nak getter
-    public static Random getRND() {
-        return RND;
     }
 
     public void setEletEro(int eletEro) {
@@ -56,11 +53,16 @@ public class Jatekos {
         return sebzes;
     }
 
+    //ezt használja
     public void lep() {
         int ujMezo = RND.nextInt(3);  // 0, 1 vagy 2
         int regMezo = this.mezo;
         this.mezo = ujMezo;
-        System.out.println(nev + " lép: " + regMezo + " -> " + ujMezo);
+        System.out.println(nev + " lép: " + regMezo + " -> " + ujMezo);//ez mikor írodik ki?
+    }
+
+    public String eletInfo() {
+        return " | ❤️ " + Math.max(0, getEletEro()) + " | ";
     }
 
 }//class

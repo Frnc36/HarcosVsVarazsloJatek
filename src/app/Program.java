@@ -9,10 +9,10 @@ public class Program {
     private static final Random RND = new Random();
 
     public static void main(String[] args) {
-        /* Kimenet Terv */
-        // ⚔ _ 🔮
-        // 1. 2. 3.
-        // _  X  _
+        /* Kimenet Terv - Tömbbel */
+        // ⚔ _ 🔮 karakter
+        // 1 2 3 mezo
+        // _ X _ harc
 
         /**
          * Példányonsítás
@@ -33,8 +33,8 @@ public class Program {
 
         int kor = 1;
 
-        while (harcos.getEletEro() > 0 && varazslo.getEletEro() > 0) {
-            System.out.println("----------------------------------------");
+        while (harcos.getEletEro() > 0 && varazslo.getEletEro() > 0) { //azért és mert a || tovább menne
+            System.out.println("\n----------------------------------------");
             System.out.println(kor + ". kör:");
 
             /**
@@ -67,9 +67,11 @@ public class Program {
 
                 varazslo.setEletEro(varazslo.getEletEro() - harcosSebzes);
                 harcos.setEletEro(harcos.getEletEro() - varazsloSebzes);
-
-                System.out.println("\n" + harcos.getNev() + " élete: " + Math.max(0, harcos.getEletEro()));
-                System.out.println(varazslo.getNev() + " élete: " + Math.max(0, varazslo.getEletEro()));
+                
+                System.out.println("\n=== Élet Kiírás ===");
+                System.out.println("⚔ " + harcos.getNev() + harcos.eletInfo());
+                System.out.println("🔮 " + varazslo.getNev() + varazslo.eletInfo());
+               
             } else {
                 System.out.println("\n(Nem találkoztak)");
             }
@@ -86,14 +88,14 @@ public class Program {
              * Ne menjen a végtelenségig
              */
             kor++;
-            if (kor > 3) {
-                System.err.println("Túl sok körig ment");
-                break;
-            }
+//            if (kor > 15) {
+//                System.err.println("Túl sok körig ment");
+//                break;
+//            }
         }
 
         // Végeredmény
-        System.out.println("=== JÁTÉK VÉGE ===");
+        System.out.println("\n=== JÁTÉK VÉGE ===");
         if (harcos.getEletEro() <= 0 && varazslo.getEletEro() <= 0) { //ha a Harcos és a Varázsló életereje is 0 vagy annál kisebb.
             System.out.println("DÖNTETLEN! Mindketten meghaltak.");
         } else if (harcos.getEletEro() <= 0) {//ha a Harcos életereje 0 vagy annál kisebb.
