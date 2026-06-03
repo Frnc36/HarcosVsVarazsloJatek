@@ -13,6 +13,10 @@ public class Program {
         // ⚔ _ 🔮 karakter
         // 1 2 3 mezo
         // _ X _ harc
+        
+        /**
+         * do while be kérés
+         */
 
         /**
          * Példányonsítás
