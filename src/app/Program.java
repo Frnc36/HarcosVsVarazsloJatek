@@ -10,10 +10,10 @@ public class Program {
 
     public static void main(String[] args) {
         /* Kimenet Terv */
-        // ⚔  _  🔮
-        // 1. 2.  3.
+        // ⚔ _ 🔮
+        // 1. 2. 3.
         // _  X  _
-        
+
         /**
          * Példányonsítás
          */
@@ -26,7 +26,7 @@ public class Program {
         System.out.println("=== HARCOS vs VARÁZSLÓ JÁTÉK ===");
         System.out.println("A karakterek 1-3 mezők között lépnek.");
         System.out.println("Ha ugyanarra a mezőre lépnek, harcolnak!\n");
-        
+
         System.out.println("<--- Kezdő Értékek --->");
         System.out.println(harcos);
         System.out.println(varazslo + "\n");
@@ -61,7 +61,7 @@ public class Program {
             if (harcos.getMezo() == varazslo.getMezo()) {
                 System.out.println("\n*** HARC! ***");
                 System.out.println("X");
-                
+
                 int harcosSebzes = harcos.sebzes();
                 int varazsloSebzes = varazslo.sebzes();
 
@@ -86,7 +86,8 @@ public class Program {
              * Ne menjen a végtelenségig
              */
             kor++;
-            if (kor > 50) {
+            if (kor > 3) {
+                System.err.println("Túl sok körig ment");
                 break;
             }
         }
@@ -100,5 +101,6 @@ public class Program {
         } else {
             System.out.println(harcos.getNev() + " győzött!");
         }
-    }
-}
+    }//main
+
+}//class

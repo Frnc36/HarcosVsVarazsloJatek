@@ -1,10 +1,10 @@
 package modell;
 
-import java.util.Random;
+//import java.util.Random;
 
 public class Varazslo extends Jatekos {
 
-    private static final Random RND = new Random();
+    //private static final Random RND = new Random();
 
     public Varazslo() {
         //      nev, sebzes, mezo
@@ -21,7 +21,7 @@ public class Varazslo extends Jatekos {
      * Mikor igaz akkor a 9 től is több lehet
      */
     public void gyogyul() {
-        if (RND.nextInt(100) < 40) { //40% eséllyel
+        if (getRND().nextInt(100) < 40) { //40% eséllyel
             int gygogyitoErtek = 3;
             int ujElet = getEletEro() + gygogyitoErtek;
             if (ujElet > 9) {

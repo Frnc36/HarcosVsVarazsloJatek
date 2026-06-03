@@ -33,6 +33,10 @@ public class Jatekos {
     public int getMezo() {
         return mezo;
     }
+    //Kell-e a Random-nak getter
+    public static Random getRND() {
+        return RND;
+    }
 
     public void setEletEro(int eletEro) {
         this.eletEro = eletEro;
