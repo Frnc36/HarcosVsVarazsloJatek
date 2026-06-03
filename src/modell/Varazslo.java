@@ -15,22 +15,22 @@ public class Varazslo extends Jatekos {
     public String toString() {
         return "🔮 " + getNev() + " | ❤️ " + getEletEro() + " | 🗡️ " + getSebzes() + " | 📍 " + (getMezo() + 1);
     }
-    
+
     /**
-     * Varázsló képes gyógyulni
-     * Mikor igaz akkor a 9 től is több lehet
+     * Varázsló képes gyógyulni Mikor igaz akkor a 9 től is több lehet
+     * @return 
      */
-    public void gyogyul() {
+    public boolean gyogyul() {
         if (RND.nextInt(100) < 40) { //40% eséllyel
-            int gygogyitoErtek = 3;
-            int ujElet = getEletEro() + gygogyitoErtek;
+            int gyogyitoErtek = 3;
+            int ujElet = getEletEro() + gyogyitoErtek;
             if (ujElet > 9) {
                 ujElet = 9;
             }
             setEletEro(ujElet);
-            System.out.println("*** VARÁZSLÓ GYÓGYUL! ***");
-        }else{
-            
+            return true;  // Sikeres gyógyulás
+        } else {
+            return false; // Nem sikerült a gyógyulás
         }
     }
 

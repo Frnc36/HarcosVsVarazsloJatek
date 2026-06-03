@@ -13,12 +13,10 @@ public class Program {
         // ⚔ _ 🔮 karakter
         // 1 2 3 mezo
         // _ X _ harc
-        
-        /** Fejelsztés
-         * do while be kérés
-         * ne legyen osztályba kiírás
-         */
 
+        /**
+         * Fejelsztés do while be kérés ne legyen osztályba kiírás
+         */
         /**
          * Példányonsítás
          */
@@ -72,11 +70,11 @@ public class Program {
 
                 varazslo.setEletEro(varazslo.getEletEro() - harcosSebzes);
                 harcos.setEletEro(harcos.getEletEro() - varazsloSebzes);
-                
+
                 System.out.println("\n=== Élet Kiírás ===");
                 System.out.println("⚔ " + harcos.getNev() + harcos.eletInfo());
                 System.out.println("🔮 " + varazslo.getNev() + varazslo.eletInfo());
-               
+
             } else {
                 System.out.println("\n(Nem találkoztak)");
             }
@@ -86,7 +84,9 @@ public class Program {
              * varázsló életereje nagyobb, mint 0.
              */
             if (varazslo.getEletEro() > 0) {
-                varazslo.gyogyul();
+                if (varazslo.gyogyul()) {
+                    System.out.println("=== VARÁZSLÓ GYÓGYUL ===");
+                }
             }
 
             /**
