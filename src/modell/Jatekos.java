@@ -11,7 +11,11 @@ public class Jatekos {
     private int sebzes;
     private int mezo;
 
-    //public enum Karakterek{"⚔","🔮"};
+//    public enum Karakterek {
+//        KARD('\u2694'),
+//        CSILLAG('\u2605');
+//    }
+
     public Jatekos(String nev, int sebzes, int mezo) {
         this.nev = nev;
         this.eletEro = 9;   //fix 9, mindenki ezt örökli
@@ -63,6 +67,10 @@ public class Jatekos {
 
     public String eletInfo() {
         return " | ❤️ " + Math.max(0, getEletEro()) + " | ";
+    }
+
+    public String sebzesInfo() {
+        return " | 🗡️ " + Math.max(0, getEletEro()) + " | ";
     }
 
 }//class

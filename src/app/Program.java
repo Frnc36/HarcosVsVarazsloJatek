@@ -14,8 +14,9 @@ public class Program {
         // 1 2 3 mezo
         // _ X _ harc
         
-        /**
+        /** Fejelsztés
          * do while be kérés
+         * ne legyen osztályba kiírás
          */
 
         /**
