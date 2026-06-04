@@ -1,8 +1,9 @@
 package modell;
 
+import java.util.Objects;
 import java.util.Random;
 
-public class Jatekos {
+public class Karakter {
 
     private static final Random RND = new Random();
 
@@ -11,12 +12,7 @@ public class Jatekos {
     private int sebzes;
     private int mezo;
 
-//    public enum Karakterek {
-//        KARD('\u2694'),
-//        CSILLAG('\u2605');
-//    }
-
-    public Jatekos(String nev, int sebzes, int mezo) {
+    public Karakter(String nev, int sebzes, int mezo) {
         this.nev = nev;
         this.eletEro = 9;   //fix 9, mindenki ezt örökli
         this.sebzes = sebzes;
@@ -39,12 +35,31 @@ public class Jatekos {
         return mezo;
     }
 
+    //Élet módosítása (harconként)
     public void setEletEro(int eletEro) {
         this.eletEro = eletEro;
     }
 
-    public void setMezo(int mezo) {
-        this.mezo = mezo;
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.nev);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Karakter other = (Karakter) obj;
+        return Objects.equals(this.nev, other.nev);
     }
 
     @Override
@@ -69,8 +84,9 @@ public class Jatekos {
         return " | ❤️ " + Math.max(0, getEletEro()) + " | ";
     }
 
+    //Félkész, műkődése mint az eletInfo
     public String sebzesInfo() {
-        return " | 🗡️ " + Math.max(0, getEletEro()) + " | ";
+        return "| ️🤺 " + getSebzes() + " |";
     }
 
 }//class

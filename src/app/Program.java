@@ -35,8 +35,8 @@ public class Program {
         System.out.println(varazslo + "\n");
 
         int kor = 1;
-
-        while (harcos.getEletEro() > 0 && varazslo.getEletEro() > 0) { //azért és mert a || tovább menne
+        //addig fut amíg mind ketten élnek
+        while (harcos.getEletEro() > 0 && varazslo.getEletEro() > 0) { //azért && mert a || tovább menne
             System.out.println("\n----------------------------------------");
             System.out.println(kor + ". kör:");
 
@@ -49,25 +49,30 @@ public class Program {
             /**
              * Random lépések
              */
-            int hLepes = RND.nextInt(3);
-            int vLepes = RND.nextInt(3);
-
-            harcos.setMezo(hLepes);
-            varazslo.setMezo(vLepes);
-
-            System.out.println("\n" + harcos.getNev() + " a " + (harcos.getMezo() + 1) + ". mezőre lépett");
-            System.out.println(varazslo.getNev() + " a " + (varazslo.getMezo() + 1) + ". mezőre lépett");
+//            int hLepes = RND.nextInt(3);
+//            int vLepes = RND.nextInt(3);
+//
+//            harcos.setMezo(hLepes);
+//            varazslo.setMezo(vLepes);
+//
+//            System.out.println("\n" + harcos.getNev() + " a " + (harcos.getMezo() + 1) + ". mezőre lépett");
+//            System.out.println(varazslo.getNev() + " a " + (varazslo.getMezo() + 1) + ". mezőre lépett");
+                
+            harcos.lep();
+            varazslo.lep();
 
             /**
              * Harc ellenőrzés
              */
             if (harcos.getMezo() == varazslo.getMezo()) {
                 System.out.println("\n*** HARC! ***");
-                System.out.println("X");
-
+                //System.out.println("X");
+                
+                //sebzés
                 int harcosSebzes = harcos.sebzes();
                 int varazsloSebzes = varazslo.sebzes();
-
+                
+                //Életpontok csökkentése
                 varazslo.setEletEro(varazslo.getEletEro() - harcosSebzes);
                 harcos.setEletEro(harcos.getEletEro() - varazsloSebzes);
 
@@ -90,13 +95,13 @@ public class Program {
             }
 
             /**
-             * Ne menjen a végtelenségig
+             * Ne menjen a végtelenségig, AI ajánlotta
              */
             kor++;
-//            if (kor > 15) {
-//                System.err.println("Túl sok körig ment");
-//                break;
-//            }
+            if (kor > 15) {
+                System.out.println("!!! Túl sok körig ment !!!");
+                break;
+            }
         }
 
         // Végeredmény

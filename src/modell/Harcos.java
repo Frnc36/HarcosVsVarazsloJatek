@@ -1,9 +1,15 @@
+/*
+    Az utódosztályokban azért nem lehet generálni hashCode() és equals() metódusokat, 
+    mert a Jatekos osztály adattagjai private-ok
+ */
 package modell;
 
 import java.util.Random;
-public class Harcos extends Jatekos {
+
+public class Harcos extends Karakter {
 
     private static final Random RND = new Random();
+
     public Harcos() {
         //      nev, sebzes, mezo
         super("Harcos", 3, 0);

@@ -1,8 +1,12 @@
+/*
+    Az utódosztályokban azért nem lehet generálni hashCode() és equals() metódusokat, 
+    mert a Jatekos osztály adattagjai private-ok
+ */
 package modell;
 
 import java.util.Random;
 
-public class Varazslo extends Jatekos {
+public class Varazslo extends Karakter {
 
     private static final Random RND = new Random();
 
@@ -17,8 +21,10 @@ public class Varazslo extends Jatekos {
     }
 
     /**
-     * Varázsló képes gyógyulni Mikor igaz akkor a 9 től is több lehet
-     * @return 
+     * Varázsló képes gyógyulni 40% eséllyel gyógyul +3 életet, de maximum 9
+     * életet érhet el
+     *
+     * @return true ha sikerült a gyógyulás, false ha nem
      */
     public boolean gyogyul() {
         if (RND.nextInt(100) < 40) { //40% eséllyel
